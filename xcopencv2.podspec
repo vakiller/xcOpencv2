@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "xcopencv2"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "Can't build opencv2 with ios simulator so we have this pod."
   spec.platform     = :ios, '12.0'
   spec.vendored_frameworks = 
@@ -26,10 +26,9 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "We don't need to buy an iphone to test with opencv2"
 
-  spec.homepage     = "http://EXAMPLE/xcopencv2"
+  spec.homepage     = "https://github.com/vakiller/xcOpencv2"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -40,7 +39,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -82,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/xcopencv2.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/vakiller/xcOpencv2.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -136,5 +135,17 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+  spec.prepare_command = <<-CMD
+    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.1/opencv2.xcframework.zip" -o opencv2.xcframework.zip
+    unzip opencv2.xcframework.zip
+    rm opencv2.xcframework.zip
+  CMD
+  
+  spec.vendored_frameworks = 'opencv2.xcframework'
+
+  # Exclude x86_64 for simulators if building on Apple Silicon (M1/M2)
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'x86_64'
+  }
 
 end
