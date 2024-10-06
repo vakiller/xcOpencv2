@@ -136,7 +136,7 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
   spec.prepare_command = <<-CMD
-    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.1/opencv2.xcframework.zip" -o opencv2.xcframework.zip
+    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.2/opencv2.xcframework.zip" -o opencv2.xcframework.zip
     unzip opencv2.xcframework.zip
     rm opencv2.xcframework.zip
   CMD
