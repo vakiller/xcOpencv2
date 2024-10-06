@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "xcopencv2"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "Can't build opencv2 with ios simulator so we have this pod."
   spec.platform     = :ios, '12.0'
   spec.vendored_frameworks = 
@@ -136,7 +136,7 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
   spec.prepare_command = <<-CMD
-    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.2/opencv2.xcframework.zip" -o opencv2.xcframework.zip
+    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.3/opencv2.xcframework.zip" -o opencv2.xcframework.zip
     unzip opencv2.xcframework.zip
     rm opencv2.xcframework.zip
   CMD
