@@ -1,43 +1,151 @@
-{
-  "name": "xcopencv2",
-  "version": "0.0.1",
-  "summary": "OpenCV (Computer Vision) for iOS. + simulator",
-  "homepage": "http://opencv.org",
-  "description": "## OpenCV: Open Source Computer Vision Library\n### Resources\n* Homepage: <https://opencv.org>\n* Docs: <https://docs.opencv.org/master/>\n* Q&A forum: <http://answers.opencv.org>\n* Issue tracking: <https://github.com/opencv/opencv/issues>\n### Contributing\nPlease read the [contribution guidelines](https://github.com/opencv/opencv/wiki/How_to_contribute) before starting work on a pull request.\n#### Summary of the guidelines:\n* One pull request per issue;\n* Choose the right base branch;\n* Include tests and documentation;\n* Clean up \"oops\" commits before submitting;\n* Follow the [coding style guide](https://github.com/opencv/opencv/wiki/Coding_Style_Guide).",
-  "license": "MIT",
-  "authors": "https://github.com/opencv/opencv/graphs/contributors",
-  "documentation_url": "https://docs.opencv.org/master/",
-  "source": {
-    "http": "https://github.com/opencv/opencv/releases/download/4.3.0/opencv-4.3.0-ios-framework.zip",
-    "sha256": "b34f5ffe6e6c5fa4946c622e01d3a329a63d19e80d35e77e8cb4252937ca532c"
-  },
-  "platforms": {
-    "ios": "9.0"
-  },
-  "preserve_paths": "opencv2.framework",
-  "source_files": "opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}",
-  "public_header_files": "opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}",
-  "vendored_frameworks": "opencv2.framework",
-  "header_dir": "opencv2",
-  "header_mappings_dir": "opencv2.framework/Versions/A/Headers/",
-  "libraries": "stdc++",
-  "frameworks": [
-    "Accelerate",
-    "AssetsLibrary",
-    "AVFoundation",
-    "CoreGraphics",
-    "CoreImage",
-    "CoreMedia",
-    "CoreVideo",
-    "Foundation",
-    "QuartzCore",
-    "UIKit"
-  ],
-  "requires_arc": false,
-  # "pod_target_xcconfig": {
-  #   "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
-  # },
-  # "user_target_xcconfig": {
-  #   "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
-  # }
-}
+#
+#  Be sure to run `pod spec lint xcopencv2.podspec' to ensure this is a
+#  valid spec and to remove all comments including this before submitting the spec.
+#
+#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
+#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+#
+
+Pod::Spec.new do |spec|
+
+  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  These will help people to find your library, and whilst it
+  #  can feel like a chore to fill in it's definitely to your advantage. The
+  #  summary should be tweet-length, and the description more in depth.
+  #
+
+  spec.name         = "xcopencv2"
+  spec.version      = "0.0.4"
+  spec.summary      = "Can't build opencv2 with ios simulator so we have this pod."
+  spec.platform     = :ios, '12.0'
+  spec.vendored_frameworks = 
+
+  # This description is used to generate tags and improve search results.
+  #   * Think: What does it do? Why did you write it? What is the focus?
+  #   * Try to keep it short, snappy and to the point.
+  #   * Write the description between the DESC delimiters below.
+  #   * Finally, don't worry about the indent, CocoaPods strips it!
+  spec.description  = "We don't need to buy an iphone to test with opencv2"
+
+  spec.homepage     = "https://github.com/vakiller/xcOpencv2"
+  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+
+
+  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Licensing your code is important. See https://choosealicense.com for more info.
+  #  CocoaPods will detect a license file if there is a named LICENSE*
+  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
+  #
+
+  spec.license      = "MIT"
+  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+
+
+  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Specify the authors of the library, with email addresses. Email addresses
+  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
+  #  accepts just a name if you'd rather not provide an email address.
+  #
+  #  Specify a social_media_url where others can refer to, for example a twitter
+  #  profile URL.
+  #
+
+  spec.author             = { "Aiden Le" => "anhlmv@vivas.vn" }
+  # Or just: spec.author    = "Aiden Le"
+  # spec.authors            = { "Aiden Le" => "anhlmv@vivas.vn" }
+  # spec.social_media_url   = "https://twitter.com/Aiden Le"
+
+  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  If this Pod runs only on iOS or OS X, then specify the platform and
+  #  the deployment target. You can optionally include the target after the platform.
+  #
+
+  # spec.platform     = :ios
+  # spec.platform     = :ios, "5.0"
+
+  #  When using multiple platforms
+  # spec.ios.deployment_target = "5.0"
+  # spec.osx.deployment_target = "10.7"
+  # spec.watchos.deployment_target = "2.0"
+  # spec.tvos.deployment_target = "9.0"
+  # spec.visionos.deployment_target = "1.0"
+
+
+  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Specify the location from where the source should be retrieved.
+  #  Supports git, hg, bzr, svn and HTTP.
+  #
+
+  spec.source       = { :git => "https://github.com/vakiller/xcOpencv2.git", :tag => "0.0.3" }
+
+
+  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  CocoaPods is smart about how it includes source code. For source files
+  #  giving a folder will include any swift, h, m, mm, c & cpp files.
+  #  For header files it will include any header in the folder.
+  #  Not including the public_header_files will make all headers public.
+  #
+
+  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.exclude_files = "Classes/Exclude"
+
+  # spec.public_header_files = "Classes/**/*.h"
+
+
+  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  A list of resources included with the Pod. These are copied into the
+  #  target bundle with a build phase script. Anything else will be cleaned.
+  #  You can preserve files from being cleaned, please don't preserve
+  #  non-essential files like tests, examples and documentation.
+  #
+
+  # spec.resource  = "icon.png"
+  # spec.resources = "Resources/*.png"
+
+  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
+
+
+  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Link your library with frameworks, or libraries. Libraries do not include
+  #  the lib prefix of their name.
+  #
+
+  # spec.framework  = "SomeFramework"
+  # spec.frameworks = "SomeFramework", "AnotherFramework"
+
+  # spec.library   = "iconv"
+  # spec.libraries = "iconv", "xml2"
+
+
+  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  If your library depends on compiler flags you can set them in the xcconfig hash
+  #  where they will only apply to your library. If you depend on other Podspecs
+  #  you can include multiple dependencies to ensure it works.
+
+  # spec.requires_arc = true
+
+  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  # spec.dependency "JSONKit", "~> 1.4"
+  spec.prepare_command = <<-CMD
+    curl -L "https://github.com/vakiller/xcOpencv2/raw/0.0.3/opencv2.xcframework.zip" -o opencv2.xcframework.zip
+    unzip opencv2.xcframework.zip
+    rm opencv2.xcframework.zip
+  CMD
+  
+  spec.vendored_frameworks = 'opencv2.xcframework'
+
+  # Exclude x86_64 for simulators if building on Apple Silicon (M1/M2)
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'x86_64'
+  }
+
+end
